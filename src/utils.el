@@ -1,6 +1,16 @@
+(defun backup-user-wordlists(dir)
+  "It backups the user wordlists so that user data is not lost when running tests. 
+   This is needed, as user wordlists management procedures strongly rely on side-effects."
+  
+  )
+
+(defun slovarik-load-tests()
+  "Wrapper for loading tests."
+  (load-files-in-directory (format "%s/src/tests" slovarik-home))
+  )
+
 (defun load-files-in-directory(dir)
   "It loads all the files in a given directory. Useful for tests loading"
-  (interactive "D")
   ;; remove / from the dir name
   (let ((dir (string-remove-suffix "/" dir)))
     (message (format "%s"
